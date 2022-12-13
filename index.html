@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <title>mnist-app</title>
-    <link rel="stylesheet" href="/static/style.css" type="text/css" media="all">
+    <link
+      rel="stylesheet"
+      href="/static/style.css"
+      type="text/css"
+      media="all"
+    />
   </head>
   <body>
     <header>
@@ -12,65 +17,67 @@
     <main>
       <section>
         <h2>数字を書いてください</h2>
-        <canvas width="280px" height="280px"></canvas>
-        <div>
+        <canvas id="draw-area" width="280px" height="280px"></canvas>
+        <div class="buttons">
           <button>推論実行</button>
           <button>書き直す</button>
         </div>
       </section>
       <section>
         <h2>推論結果</h2>
-        <div>推論した手書き数字の画像</div>
-        <table>
-          <thead>
-            <tr>
-              <th>数字</th>
-              <th>確率</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>0</td>
-              <td>0.1</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>0.5</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>0.4</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>0.1</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>0.1</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>0.1</td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>0.1</td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>0.1</td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td>0.1</td>
-            </tr>
-            <tr>
-              <td>9</td>
-              <td>0.1</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="result-image-table">
+          <div id="result-image">推論した手書き数字の画像</div>
+          <table class="result-table">
+            <thead>
+              <tr>
+                <th>数字</th>
+                <th>確率</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0</td>
+                <td>0.1</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>0.5</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>0.4</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>0.1</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>0.1</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>0.1</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>0.1</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>0.1</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>0.1</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>0.1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
     </main>
   </body>
