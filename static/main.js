@@ -27,7 +27,21 @@ predictButtonElement.addEventListener("click", async() => {
   })
   const responseData = await response.json()
   console.log(responseData);
-  //
+
+  // 推論結果の画像を表示
+  const imageURL = URL.createObjectURL(blob)
+  const imageElement = document.createElement('img')
+  imageElement.src = imageURL
+
+  const resultImageElement = document.getElementById('result-image')
+
+  if ( resultImageElement.firstChild ){
+    resultImageElement.removeChild(resultImageElement.firstChild)
+  }
+  resultImageElement.appendChild(imageElement)
+
+  canvas.clear()
+
   // 推論結果をtbodyに表示
   const tablebodyElement = document.getElementById('result-table-body')
 
