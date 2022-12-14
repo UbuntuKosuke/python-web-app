@@ -10,7 +10,21 @@ clearButtonElement.addEventListener('click', () => {
 
 const predictButtonElement = document.getElementById("predict-button")
 predictButtonElement.addEventListener("click", async() => {
-  const response = await fetch('/api/predict')
+
+  if(canvas.isEmpty){
+    return
+  }
+
+  //推論を実行する
+
+  const blob = await canvas.toBlob('image/png')
+  const formData = new FormData()
+  formData.append('image', blob, 'number.png')
+
+  const response = await fetch('/api/predict', {
+    method: 'POST',
+    body: formData
+  })
   const responseData = await response.json()
   console.log(responseData);
   //

@@ -2,6 +2,10 @@ from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 
+from io import BytesIO
+from fastapi import File, UploadFile
+from PIL import Image
+
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"))
@@ -12,8 +16,12 @@ async def root():
     with open("index.html","r") as f:
         return f.read()
 
-@app.get("/api/predict")
-async def predict():
+@app.post("/api/predict")
+async def predict(image: UploadFile = File(...)):
+    image_data = await image.read()
+    pil_image = Image.open(BytesIO(image_data))
+    pil_image.save('number.png')
+
     probabilities = [ 0.2, 0.3, 0.5, 0, 0, 0, 0, 0, 0, 0 ]
     return {'probabilities': probabilities}
 
